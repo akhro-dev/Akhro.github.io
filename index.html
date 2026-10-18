@@ -4,33 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Axrorbek Abdilvosiyev — IT portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
-  --bg:#eef2f7; --surface:#ffffff; --ink:#14213d; --muted:#56607a; --line:#cdd6e4; --accent:#1f4bd8; --accent-ink:#ffffff; --mark:#ffe58a;
-  --head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
-  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
-  color-scheme:light;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--bg:#0f1626;--surface:#17203a;--ink:#e8edf8;--muted:#9aa6c2;--line:#2a3658;--accent:#7c9bff;--accent-ink:#0f1626;--mark:#6b5a12;color-scheme:dark}
-}
-:root[data-theme="dark"]{--bg:#0f1626;--surface:#17203a;--ink:#e8edf8;--muted:#9aa6c2;--line:#2a3658;--accent:#7c9bff;--accent-ink:#0f1626;--mark:#6b5a12;color-scheme:dark}
-html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
-*,*::before,*::after{box-sizing:inherit}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#eef2f7;--surface:#fff;--ink:#14213d;--muted:#56607a;--line:#cdd6e4;--accent:#1f4bd8;--mark:#ffe58a;
+--head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;--body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1626;--surface:#17203a;--ink:#e8edf8;--muted:#9aa6c2;--line:#2a3658;--accent:#7c9bff;--mark:#6b5a12;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1626;--surface:#17203a;--ink:#e8edf8;--muted:#9aa6c2;--line:#2a3658;--accent:#7c9bff;--mark:#6b5a12;color-scheme:dark}
+html{height:100%}*,*::before,*::after{box-sizing:inherit}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body)}
-.wrap{max-width:820px;margin:0 auto;padding:48px 20px 64px}
-h1{font:800 clamp(2.4rem,7vw,4rem)/1.02 var(--head);letter-spacing:-.02em;margin:0 0 12px}
-.lead{color:var(--muted);max-width:56ch;margin:0 0 32px}
-.search{position:relative}
-.search input{width:100%;font:500 clamp(1.1rem,3vw,1.4rem) var(--head);padding:20px 56px 20px 20px;border:2px solid var(--ink);border-radius:6px;background:var(--surface);color:var(--ink)}
-.search input::placeholder{color:var(--muted);font-weight:500}
-.search input:focus-visible,.chip:focus-visible,a:focus-visible,.theme:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-.search kbd{position:absolute;right:16px;top:50%;transform:translateY(-50%);font:500 .8rem var(--body);color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 8px}
+.wrap{max-width:820px;margin:0 auto;padding:32px 20px 64px}
+h1{font:800 clamp(2.2rem,7vw,3.8rem)/1.05 var(--head);letter-spacing:-.02em;margin:0 0 12px}
+.lead{color:var(--muted);max-width:56ch;margin:0 0 28px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:32px;color:var(--muted);font-size:.95rem}
+.btns{display:flex;gap:8px}
+.sm{background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 12px;font:500 .9rem var(--body);cursor:pointer}
+.search input{width:100%;font:500 clamp(1.1rem,3vw,1.35rem) var(--head);padding:18px 20px;border:2px solid var(--ink);border-radius:6px;background:var(--surface);color:var(--ink)}
+.search input::placeholder{color:var(--muted)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 8px}
 .chip{font:500 .95rem var(--body);padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink);cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
@@ -38,101 +29,135 @@ h1{font:800 clamp(2.4rem,7vw,4rem)/1.02 var(--head);letter-spacing:-.02em;margin
 .list{display:grid;gap:12px;margin:0;padding:0;list-style:none}
 .item{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px;padding:18px 20px}
 .item h3{font:700 1.2rem/1.25 var(--head);margin:0 0 2px}
-.meta{color:var(--muted);font-size:.9rem;margin:0 0 8px}
-.item p{margin:0}
+.meta{color:var(--muted);font-size:.9rem;margin:0 0 8px}.item p{margin:0}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
 .tag{font-size:.82rem;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:1px 8px}
 .item a{color:var(--accent);font-weight:500}
 mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
 .empty{padding:32px 0;color:var(--muted)}
-.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;color:var(--muted);font-size:.95rem}
-.theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 12px;font:500 .9rem var(--body);cursor:pointer}
 footer{margin-top:48px;color:var(--muted);font-size:.9rem}
-@media (prefers-reduced-motion:no-preference){.item{animation:in .25s ease-out}@keyframes in{from{opacity:0}to{opacity:1}}}
+#pick{position:fixed;inset:0;z-index:9;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:20px}
+#pick[hidden]{display:none}
+.pk{width:100%;max-width:420px}
+.pk h2{font:800 1.6rem/1.2 var(--head);margin:0 0 6px}
+.pk p{color:var(--muted);margin:0 0 20px;font-size:.95rem}
+.lb{display:block;width:100%;text-align:left;font:700 1.25rem var(--head);padding:16px 20px;margin-bottom:10px;border:2px solid var(--ink);border-radius:6px;background:var(--surface);color:var(--ink);cursor:pointer}
+.lb:hover{background:var(--ink);color:var(--bg)}
 </style>
 </head>
 <body>
+<div id="pick" role="dialog" aria-modal="true" aria-labelledby="pt" hidden>
+  <div class="pk"><h2 id="pt">Tilni tanlang · Выберите язык · Choose language · Dil seçin · 选择语言 · Sprache wählen · 言語を選択 · Elige idioma</h2>
+  <p></p><div id="lbs"></div></div>
+</div>
 <div class="wrap">
-  <div class="top"><span>Toshkent, Yunusobod tumani</span><button class="theme" id="theme" type="button">Rejim</button></div>
-  <h1>Axrorbek Abdilvosiyev</h1>
-  <p class="lead">239-maktab 11-A sinf oʻquvchisi, dasturlashni oʻrganayotgan abituriyent. Menga oid hamma narsa shu yerda: qidiruvga kerakli soʻzni yozing, masalan «Python», «olimpiada» yoki «telegram».</p>
-
-  <div class="search">
-    <input id="q" type="search" placeholder="Nima izlayapsiz?" aria-label="Sayt ichidan qidirish" autocomplete="off">
-    <kbd>/</kbd>
-  </div>
-  <div class="chips" id="chips" role="group" aria-label="Boʻlimlar"></div>
+  <div class="top"><span id="loc"></span><div class="btns"><button class="sm" id="lang" type="button"></button><button class="sm" id="theme" type="button"></button></div></div>
+  <h1 id="h1">Axrorbek Abdilvosiyev</h1>
+  <p class="lead" id="lead"></p>
+  <div class="search"><input id="q" type="search" autocomplete="off"></div>
+  <div class="chips" id="chips" role="group"></div>
   <p class="count" id="count" aria-live="polite"></p>
   <ul class="list" id="list"></ul>
-
-  <footer>Oxirgi yangilanish: 2026-yil oktyabr</footer>
+  <footer id="foot"></footer>
 </div>
-
 <script>
-/* ====== SHU YERNI OʻZINGIZGA MOSLAB TAHRIRLANG ======
-   cat: boʻlim nomi, title: sarlavha, meta: sana/joy, text: tavsif,
-   tags: kalit soʻzlar, link: ixtiyoriy havola */
-const DATA = [
-  {cat:"Men haqimda", title:"Qisqacha tanishuv", meta:"2009-yil 13-noyabrda tugʻilganman", text:"Men Axrorbek Abdilvosiyev, 16 yoshdaman. Toshkent shahri, Yunusobod tumani, 239-maktabning 11-A sinfida oʻqiyman. IT sohasiga qiziqaman va dasturlashni oʻzim mustaqil oʻrganyapman.", tags:["tanishuv","haqimda","Yunusobod","Toshkent"]},
-  {cat:"Taʼlim", title:"239-maktab, 11-A sinf", meta:"Yunusobod tumani, Toshkent · hozirgi kunda", text:"Maktabimizda 10 ballik tizim qoʻllanadi. Baholarim yaxshi: 8, 9 va 10 baho olaman (bu 5 ballik tizimda taxminan 4–5 ga teng). Bu yil maktabda informatika fanidan olimpiadada ishtirok etyapman.", tags:["maktab","239-maktab","baho","informatika","11-sinf"]},
-  {cat:"Koʻnikmalar", title:"Hozir oʻrganayotganlarim", meta:"", text:"Python dasturlash tili va frontend (HTML, CSS, JavaScript) asoslarini oʻrganyapman.", tags:["Python","frontend","HTML","CSS","JavaScript","dasturlash"]},
-  {cat:"Koʻnikmalar", title:"Oʻrganishni rejalashtirganlarim", meta:"kelgusi yillar", text:"C++, Java, JavaScript va backend dasturlash. Maqsadim bitta tilda toʻxtab qolmay, turli yoʻnalishlarni chuqur bilish.", tags:["C++","Java","JavaScript","backend","reja"]},
-  {cat:"Loyihalar", title:"Shaxsiy portfolio saytim", meta:"2026 · HTML, CSS, JavaScript", text:"Oʻzim haqimdagi maʼlumotlarni bir joyga toʻplagan va ichidan qidirish mumkin boʻlgan sayt. Aynan shu sahifa.", tags:["sayt","frontend","HTML","CSS","JavaScript","portfolio"]},
-  {cat:"Loyihalar", title:"Yaqin rejalarim", meta:"2026–2027", text:"Hozircha katta loyihalarim yoʻq, lekin yaqin kelajakda Python va veb texnologiyalarida bir nechta amaliy loyiha qilmoqchiman va ularni GitHub'ga joylayman.", tags:["reja","loyiha","GitHub","Python"]},
-  {cat:"Yutuqlar", title:"Informatika olimpiadasi", meta:"2026–2027 oʻquv yili · maktab bosqichi", text:"Bu yil maktabimizda informatikadan olimpiadada qatnashyapman va gʻolib boʻlishni maqsad qilganman. Natijalar chiqqach shu yerga qoʻshaman.", tags:["olimpiada","informatika","tanlov","maqsad"]},
-  {cat:"Maqsadlar", title:"Kelajak rejalarim", meta:"", text:"Universitetda IT yoʻnalishida oʻqib, C++, Java va backend boʻyicha chuqur bilim olish hamda real loyihalarda ishlash.", tags:["maqsad","kelajak","universitet","IT"]},
-  {cat:"Aloqa", title:"Bogʻlanish", meta:"", text:"Email: 11axa132009@gmail.com · Telegram: @A_A_R_11", tags:["email","telegram","aloqa","kontakt","gmail"], link:"https://t.me/A_A_R_11"}
+const LANGS={uz:"Oʻzbekcha",ru:"Русский",en:"English",tr:"Türkçe",zh:"中文",de:"Deutsch",ja:"日本語",es:"Español"};
+const UI={
+uz:{loc:"Toshkent, Yunusobod tumani",lead:"239-maktab 11-A sinf oʻquvchisi, dasturlashni oʻrganayotgan abituriyent. Menga oid hamma narsa shu yerda: qidiruvga kerakli soʻzni yozing, masalan «Python», «olimpiada» yoki «telegram».",ph:"Nima izlayapsiz?",all:"Hammasi",n:"{n} ta natija topildi",empty:"Hech narsa topilmadi. Boshqa soʻz yozing yoki «Hammasi» boʻlimini tanlang.",open:"Ochish",mode:"Rejim",foot:"Oxirgi yangilanish: 2026-yil oktyabr",cats:{about:"Men haqimda",edu:"Taʼlim",skills:"Koʻnikmalar",projects:"Loyihalar",awards:"Yutuqlar",goals:"Maqsadlar",contact:"Aloqa"}},
+ru:{loc:"Ташкент, Юнусабадский район",lead:"Ученик 11-А класса школы № 239, изучаю программирование. Вся информация обо мне здесь: введите нужное слово в поиск, например «Python», «олимпиада» или «telegram».",ph:"Что ищете?",all:"Все",n:"Найдено: {n}",empty:"Ничего не найдено. Введите другое слово или выберите «Все».",open:"Открыть",mode:"Тема",foot:"Обновлено: октябрь 2026",cats:{about:"Обо мне",edu:"Образование",skills:"Навыки",projects:"Проекты",awards:"Достижения",goals:"Цели",contact:"Контакты"}},
+en:{loc:"Tashkent, Yunusabad district",lead:"Grade 11-A student at School No. 239, learning programming. Everything about me is here: type a word into the search, for example “Python”, “olympiad” or “telegram”.",ph:"What are you looking for?",all:"All",n:"{n} results found",empty:"Nothing found. Try another word or choose “All”.",open:"Open",mode:"Theme",foot:"Last updated: October 2026",cats:{about:"About",edu:"Education",skills:"Skills",projects:"Projects",awards:"Achievements",goals:"Goals",contact:"Contact"}},
+tr:{loc:"Taşkent, Yunusabad ilçesi",lead:"239 numaralı okulun 11-A sınıf öğrencisiyim, programlama öğreniyorum. Hakkımdaki her şey burada: aramaya bir kelime yazın, örneğin “Python”, “olimpiyat” veya “telegram”.",ph:"Ne arıyorsunuz?",all:"Hepsi",n:"{n} sonuç bulundu",empty:"Sonuç bulunamadı. Başka bir kelime yazın veya “Hepsi” bölümünü seçin.",open:"Aç",mode:"Tema",foot:"Son güncelleme: Ekim 2026",cats:{about:"Hakkımda",edu:"Eğitim",skills:"Beceriler",projects:"Projeler",awards:"Başarılar",goals:"Hedefler",contact:"İletişim"}},
+zh:{loc:"塔什干，尤努萨巴德区",lead:"第239中学11-A班学生，正在学习编程。关于我的一切都在这里：在搜索框输入关键词，例如“Python”、“奥赛”或“telegram”。",ph:"想查找什么？",all:"全部",n:"找到 {n} 条结果",empty:"没有找到结果。请换一个词，或选择“全部”。",open:"打开",mode:"主题",foot:"最近更新：2026年10月",cats:{about:"关于我",edu:"教育",skills:"技能",projects:"项目",awards:"成就",goals:"目标",contact:"联系"}},
+de:{loc:"Taschkent, Bezirk Junusobod",lead:"Schüler der 11-A an der Schule Nr. 239, ich lerne Programmieren. Alles über mich finden Sie hier: Geben Sie ein Stichwort in die Suche ein, zum Beispiel „Python“, „Olympiade“ oder „Telegram“.",ph:"Was suchen Sie?",all:"Alle",n:"{n} Ergebnisse gefunden",empty:"Nichts gefunden. Versuchen Sie ein anderes Wort oder wählen Sie „Alle“.",open:"Öffnen",mode:"Design",foot:"Zuletzt aktualisiert: Oktober 2026",cats:{about:"Über mich",edu:"Ausbildung",skills:"Fähigkeiten",projects:"Projekte",awards:"Erfolge",goals:"Ziele",contact:"Kontakt"}},
+ja:{loc:"タシケント、ユヌサバード区",lead:"第239学校11-A組の生徒で、プログラミングを学んでいます。私に関する情報はすべてここにあります。検索欄に「Python」「オリンピアード」「telegram」などの言葉を入力してください。",ph:"何をお探しですか？",all:"すべて",n:"{n}件見つかりました",empty:"見つかりませんでした。別の言葉を入力するか、「すべて」を選んでください。",open:"開く",mode:"テーマ",foot:"最終更新：2026年10月",cats:{about:"自己紹介",edu:"学歴",skills:"スキル",projects:"プロジェクト",awards:"実績",goals:"目標",contact:"連絡先"}},
+es:{loc:"Taskent, distrito de Yunusabad",lead:"Estudiante de 11-A en la escuela n.º 239, aprendiendo programación. Aquí está todo sobre mí: escribe una palabra en el buscador, por ejemplo «Python», «olimpiada» o «telegram».",ph:"¿Qué buscas?",all:"Todo",n:"{n} resultados encontrados",empty:"No se encontró nada. Prueba con otra palabra o elige «Todo».",open:"Abrir",mode:"Tema",foot:"Última actualización: octubre de 2026",cats:{about:"Sobre mí",edu:"Educación",skills:"Habilidades",projects:"Proyectos",awards:"Logros",goals:"Metas",contact:"Contacto"}}};
+/* t: [sarlavha, meta, matn] — har til uchun */
+const DATA=[
+{c:"about",tags:["IT"],t:{
+uz:["Qisqacha tanishuv","Toshkent, Yunusobod tumani","Men Axrorbek Abdilvosiyev, 16 yoshdaman. 239-maktabning 11-A sinfida oʻqiyman. IT sohasiga qiziqaman va dasturlashni mustaqil oʻrganyapman."],
+ru:["Коротко обо мне","Ташкент, Юнусабадский район","Меня зовут Ахрорбек Абдилвосиев, мне 16 лет. Учусь в 11-А классе школы № 239. Интересуюсь IT и самостоятельно изучаю программирование."],
+en:["About me","Tashkent, Yunusabad district","I’m Axrorbek Abdilvosiyev, 16 years old. I study in grade 11-A at School No. 239. I’m interested in IT and I’m learning programming on my own."],
+tr:["Kısaca ben","Taşkent, Yunusabad ilçesi","Ben Axrorbek Abdilvosiyev, 16 yaşındayım. 239 numaralı okulun 11-A sınıfında okuyorum. BT alanına ilgi duyuyorum ve programlamayı kendi kendime öğreniyorum."],
+zh:["简介","塔什干，尤努萨巴德区","我叫阿赫罗尔别克·阿卜迪利沃西耶夫，16岁，就读于第239中学11-A班。我对信息技术感兴趣，正在自学编程。"]}},
+{c:"edu",tags:["239"],t:{
+uz:["239-maktab, 11-A sinf","Yunusobod tumani · hozirgi kunda","Maktabimizda 10 ballik tizim qoʻllanadi. Baholarim yaxshi: 8, 9 va 10 baho olaman (bu 5 ballik tizimda taxminan 4–5 ga teng)."],
+ru:["Школа № 239, 11-А класс","Юнусабадский район · сейчас","В школе действует 10-балльная система. Оценки хорошие: 8, 9 и 10 (примерно 4–5 по 5-балльной системе)."],
+en:["School No. 239, grade 11-A","Yunusabad district · current","My school uses a 10-point grading scale. My grades are good: 8, 9 and 10 (roughly 4–5 on a 5-point scale)."],
+tr:["239 numaralı okul, 11-A sınıfı","Yunusabad ilçesi · şu an","Okulumuzda 10 puanlık not sistemi var. Notlarım iyi: 8, 9 ve 10 (5 puanlık sistemde yaklaşık 4–5)."],
+zh:["第239中学 11-A班","尤努萨巴德区 · 在读","学校采用10分制。我的成绩良好：8分、9分和10分（约相当于5分制的4–5分）。"]}},
+{c:"skills",tags:["Python","HTML","CSS","JavaScript","frontend"],t:{
+uz:["Hozir oʻrganayotganlarim","","Python dasturlash tili va frontend (HTML, CSS, JavaScript) asoslari."],
+ru:["Что изучаю сейчас","","Язык программирования Python и основы фронтенда (HTML, CSS, JavaScript)."],
+en:["Learning now","","Python programming language and frontend basics (HTML, CSS, JavaScript)."],
+tr:["Şu an öğrendiklerim","","Python programlama dili ve ön yüz (frontend) temelleri: HTML, CSS, JavaScript."],
+zh:["正在学习","","Python编程语言和前端基础（HTML、CSS、JavaScript）。"]}},
+{c:"skills",tags:["C++","Java","JavaScript","backend"],t:{
+uz:["Oʻrganishni rejalashtirganlarim","kelgusi yillar","C++, Java, JavaScript va backend. Maqsadim turli yoʻnalishlarni chuqur bilish."],
+ru:["Планирую изучить","ближайшие годы","C++, Java, JavaScript и бэкенд. Моя цель — глубоко знать разные направления."],
+en:["Planning to learn","coming years","C++, Java, JavaScript and backend. My goal is to know several areas in depth."],
+tr:["Öğrenmeyi planladıklarım","önümüzdeki yıllar","C++, Java, JavaScript ve arka yüz (backend). Amacım farklı alanları derinlemesine bilmek."],
+zh:["学习计划","未来几年","C++、Java、JavaScript和后端开发。我的目标是深入掌握多个方向。"]}},
+{c:"projects",tags:["HTML","CSS","JavaScript","portfolio"],t:{
+uz:["Shaxsiy portfolio saytim","2026 · HTML, CSS, JavaScript","Oʻzim haqimdagi maʼlumotlar toʻplangan, ichidan qidirish va 8 tilda oʻqish mumkin boʻlgan sayt. Aynan shu sahifa."],
+ru:["Мой сайт-портфолио","2026 · HTML, CSS, JavaScript","Сайт с информацией обо мне, с поиском и на 8 языках. Это и есть эта страница."],
+en:["My portfolio website","2026 · HTML, CSS, JavaScript","A site with information about me, with search and 8 languages. This very page."],
+tr:["Kişisel portföy sitem","2026 · HTML, CSS, JavaScript","Hakkımdaki bilgilerin toplandığı, arama özellikli ve 8 dilde okunabilen site. Tam olarak bu sayfa."],
+zh:["我的个人作品集网站","2026 · HTML、CSS、JavaScript","汇集我个人信息的网站，支持搜索和8种语言。就是这个页面。"]}},
+{c:"projects",tags:["GitHub","Python"],t:{
+uz:["Yaqin rejalarim","2026–2027","Python va veb texnologiyalarida bir nechta amaliy loyiha qilib, ularni GitHub’ga joylayman."],
+ru:["Ближайшие планы","2026–2027","Сделать несколько практических проектов на Python и веб-технологиях и выложить их на GitHub."],
+en:["Next steps","2026–2027","Build several practical projects with Python and web technologies and publish them on GitHub."],
+tr:["Yakın planlarım","2026–2027","Python ve web teknolojileriyle birkaç uygulamalı proje yapıp GitHub’a yüklemek."],
+zh:["近期计划","2026–2027","用Python和网页技术做几个实践项目，并发布到GitHub。"]}},
+{c:"awards",tags:["olympiad","informatics"],t:{
+uz:["Informatika olimpiadasi","2026–2027 oʻquv yili · maktab bosqichi","Bu yil maktabda informatikadan olimpiadada qatnashyapman va gʻolib boʻlishni maqsad qilganman."],
+ru:["Олимпиада по информатике","2026–2027 учебный год · школьный этап","В этом году участвую в школьной олимпиаде по информатике и хочу победить."],
+en:["Informatics olympiad","2026–2027 school year · school round","This year I’m taking part in my school’s informatics olympiad and aim to win."],
+tr:["Bilişim olimpiyatı","2026–2027 eğitim yılı · okul aşaması","Bu yıl okulumuzdaki bilişim olimpiyatına katılıyorum ve kazanmayı hedefliyorum."],
+zh:["信息学奥林匹克","2026–2027学年 · 校级赛","今年我参加学校的信息学奥赛，目标是获胜。"]}},
+{c:"goals",tags:["IT","C++","Java","backend"],t:{
+uz:["Kelajak rejalarim","","Universitetda IT yoʻnalishida oʻqib, C++, Java va backend boʻyicha chuqur bilim olish hamda real loyihalarda ishlash."],
+ru:["Мои цели","","Учиться в университете по IT-направлению, глубоко освоить C++, Java и бэкенд, работать над реальными проектами."],
+en:["My goals","","Study IT at university, gain deep knowledge of C++, Java and backend, and work on real projects."],
+tr:["Hedeflerim","","Üniversitede BT alanında okuyup C++, Java ve backend konusunda derin bilgi edinmek, gerçek projelerde çalışmak."],
+zh:["我的目标","","在大学攻读信息技术专业，深入学习C++、Java和后端，并参与真实项目。"]}},
+{c:"contact",tags:["email","gmail","telegram"],link:"https://t.me/A_A_R_11",t:(()=>{const x=["Email: 11axa132009@gmail.com · Telegram: @A_A_R_11"],o={};
+const ti={uz:"Bogʻlanish",ru:"Контакты",en:"Contact",tr:"İletişim",zh:"联系方式"};for(const k in ti)o[k]=[ti[k],"",x[0]];return o})()}
 ];
-
-const $ = s => document.querySelector(s);
-const cats = ["Hammasi", ...new Set(DATA.map(d => d.cat))];
-let active = "Hammasi";
-
-const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const norm = s => s.toLowerCase().replace(/[ʻʼ’'`‘]/g, "");
-function hl(text, q){
-  const t = esc(text);
-  if(!q) return t;
-  const re = new RegExp("(" + q.split(/\s+/).filter(Boolean).map(w => w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|") + ")", "gi");
-  return t.replace(re, "<mark>$1</mark>");
-}
-
-function render(){
-  const q = $("#q").value.trim();
-  const words = norm(q).split(/\s+/).filter(Boolean);
-  const res = DATA.filter(d => {
-    if(active !== "Hammasi" && d.cat !== active) return false;
-    const hay = norm([d.cat, d.title, d.meta, d.text, d.tags.join(" ")].join(" "));
-    return words.every(w => hay.includes(w));
-  });
-  $("#count").textContent = q || active !== "Hammasi" ? res.length + " ta natija topildi" : "";
-  $("#list").innerHTML = res.length ? res.map(d => `
-    <li class="item">
-      <h3>${hl(d.title,q)}</h3>
-      <p class="meta">${esc(d.cat)}${d.meta ? " · " + hl(d.meta,q) : ""}</p>
-      <p>${hl(d.text,q)}</p>
-      ${d.link ? `<p><a href="${esc(d.link)}" target="_blank" rel="noopener">Ochish</a></p>` : ""}
-      <div class="tags">${d.tags.map(t => `<span class="tag">${hl(t,q)}</span>`).join("")}</div>
-    </li>`).join("") : `<li class="empty">Hech narsa topilmadi. Boshqa soʻz yozing yoki «Hammasi» boʻlimini tanlang.</li>`;
-}
-
-function renderChips(){
-  $("#chips").innerHTML = cats.map(c => `<button class="chip" type="button" aria-pressed="${c===active}" data-c="${esc(c)}">${esc(c)}</button>`).join("");
-}
-$("#chips").addEventListener("click", e => {
-  const b = e.target.closest(".chip"); if(!b) return;
-  active = b.dataset.c; renderChips(); render();
-});
-$("#q").addEventListener("input", render);
-document.addEventListener("keydown", e => {
-  if(e.key === "/" && document.activeElement !== $("#q")){ e.preventDefault(); $("#q").focus(); }
-});
-$("#theme").addEventListener("click", () => {
-  const r = document.documentElement;
-  const dark = r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-  r.dataset.theme = dark ? "light" : "dark";
-});
-renderChips(); render();
+const MORE=[
+{de:["Kurz über mich","Taschkent, Bezirk Junusobod","Ich bin Axrorbek Abdilvosiyev, 16 Jahre alt. Ich besuche die Klasse 11-A der Schule Nr. 239. Ich interessiere mich für IT und bringe mir das Programmieren selbst bei."],ja:["自己紹介","タシケント、ユヌサバード区","アフロルベク・アブディルヴォシエフ、16歳です。第239学校の11-A組に通っています。ITに興味があり、独学でプログラミングを学んでいます。"],es:["Sobre mí","Taskent, distrito de Yunusabad","Soy Axrorbek Abdilvosiyev, tengo 16 años. Estudio en 11-A de la escuela n.º 239. Me interesa la informática y estoy aprendiendo programación por mi cuenta."]},
+{de:["Schule Nr. 239, Klasse 11-A","Bezirk Junusobod · aktuell","An meiner Schule gilt ein 10-Punkte-Notensystem. Meine Noten sind gut: 8, 9 und 10 (etwa 4–5 im 5-Punkte-System)."],ja:["第239学校 11-A組","ユヌサバード区 · 在学中","学校は10段階評価です。成績は良好で、8、9、10を取っています（5段階評価で約4〜5に相当）。"],es:["Escuela n.º 239, 11-A","Distrito de Yunusabad · actualidad","Mi escuela usa una escala de 10 puntos. Mis notas son buenas: 8, 9 y 10 (aproximadamente 4–5 en una escala de 5)."]},
+{de:["Was ich gerade lerne","","Programmiersprache Python und Frontend-Grundlagen (HTML, CSS, JavaScript)."],ja:["現在学んでいること","","プログラミング言語Pythonとフロントエンドの基礎（HTML、CSS、JavaScript）。"],es:["Lo que aprendo ahora","","Lenguaje Python y fundamentos de frontend (HTML, CSS, JavaScript)."]},
+{de:["Was ich lernen möchte","kommende Jahre","C++, Java, JavaScript und Backend. Mein Ziel ist es, mehrere Bereiche gründlich zu beherrschen."],ja:["学ぶ予定のこと","今後数年","C++、Java、JavaScript、バックエンド。複数の分野を深く理解することが目標です。"],es:["Lo que quiero aprender","próximos años","C++, Java, JavaScript y backend. Mi meta es dominar varias áreas a fondo."]},
+{de:["Meine Portfolio-Website","2026 · HTML, CSS, JavaScript","Eine Seite mit Informationen über mich, mit Suche und 8 Sprachen. Genau diese Seite."],ja:["個人ポートフォリオサイト","2026 · HTML、CSS、JavaScript","自分の情報をまとめた、検索と8言語に対応したサイト。まさにこのページです。"],es:["Mi sitio web de portafolio","2026 · HTML, CSS, JavaScript","Un sitio con información sobre mí, con buscador y 8 idiomas. Esta misma página."]},
+{de:["Nächste Schritte","2026–2027","Mehrere praktische Projekte mit Python und Webtechnologien umsetzen und auf GitHub veröffentlichen."],ja:["今後の計画","2026–2027","PythonとWeb技術でいくつか実践的なプロジェクトを作り、GitHubに公開します。"],es:["Próximos pasos","2026–2027","Crear varios proyectos prácticos con Python y tecnologías web y publicarlos en GitHub."]},
+{de:["Informatik-Olympiade","Schuljahr 2026–2027 · Schulrunde","Dieses Jahr nehme ich an der Informatik-Olympiade meiner Schule teil und möchte gewinnen."],ja:["情報オリンピアード","2026〜2027年度 · 校内予選","今年、学校の情報オリンピアードに参加しており、優勝を目指しています。"],es:["Olimpiada de informática","curso 2026–2027 · fase escolar","Este año participo en la olimpiada de informática de mi escuela y quiero ganar."]},
+{de:["Meine Ziele","","An der Universität IT studieren, C++, Java und Backend gründlich lernen und an echten Projekten arbeiten."],ja:["私の目標","","大学でITを学び、C++、Java、バックエンドを深く習得し、実際のプロジェクトに携わること。"],es:["Mis metas","","Estudiar informática en la universidad, aprender a fondo C++, Java y backend, y trabajar en proyectos reales."]},
+(()=>{const x="Email: 11axa132009@gmail.com · Telegram: @A_A_R_11";return{de:["Kontakt","",x],ja:["連絡先","",x],es:["Contacto","",x]}})()
+];
+MORE.forEach((m,i)=>Object.assign(DATA[i].t,m));
+const $=s=>document.querySelector(s);
+let lang="uz",active="all";
+try{const s=localStorage.getItem("lang");if(s&&UI[s])lang=s;else $("#pick").hidden=false}catch(e){$("#pick").hidden=false}
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const norm=s=>s.toLowerCase().replace(/[ʻʼ’'`‘]/g,"");
+function hl(t,q){t=esc(t);if(!q)return t;const w=q.split(/\s+/).filter(Boolean).map(x=>x.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"));return w.length?t.replace(new RegExp("("+w.join("|")+")","gi"),"<mark>$1</mark>"):t}
+function texts(){const u=UI[lang];$("#loc").textContent=u.loc;$("#lead").textContent=u.lead;$("#q").placeholder=u.ph;$("#q").setAttribute("aria-label",u.ph);
+$("#theme").textContent=u.mode;$("#lang").textContent="🌐 "+LANGS[lang];$("#foot").textContent=u.foot;document.documentElement.lang=lang}
+function chips(){const u=UI[lang],ks=["all",...new Set(DATA.map(d=>d.c))];
+$("#chips").innerHTML=ks.map(k=>`<button class="chip" type="button" aria-pressed="${k===active}" data-c="${k}">${esc(k==="all"?u.all:u.cats[k])}</button>`).join("")}
+function render(){const u=UI[lang],q=$("#q").value.trim(),ws=norm(q).split(/\s+/).filter(Boolean);
+const r=DATA.filter(d=>(active==="all"||d.c===active)&&ws.every(w=>norm([u.cats[d.c],...d.t[lang],d.tags.join(" ")].join(" ")).includes(w)));
+$("#count").textContent=q||active!=="all"?u.n.replace("{n}",r.length):"";
+$("#list").innerHTML=r.length?r.map(d=>{const[a,b,c]=d.t[lang];return `<li class="item"><h3>${hl(a,q)}</h3><p class="meta">${esc(u.cats[d.c])}${b?" · "+hl(b,q):""}</p><p>${hl(c,q)}</p>${d.link?`<p><a href="${esc(d.link)}" target="_blank" rel="noopener">${esc(u.open)}</a></p>`:""}<div class="tags">${d.tags.map(t=>`<span class="tag">${hl(t,q)}</span>`).join("")}</div></li>`}).join(""):`<li class="empty">${esc(u.empty)}</li>`}
+function all(){texts();chips();render()}
+$("#lbs").innerHTML=Object.keys(LANGS).map(k=>`<button class="lb" type="button" data-l="${k}">${LANGS[k]}</button>`).join("");
+$("#lbs").addEventListener("click",e=>{const b=e.target.closest(".lb");if(!b)return;lang=b.dataset.l;try{localStorage.setItem("lang",lang)}catch(x){}$("#pick").hidden=true;all()});
+$("#lang").addEventListener("click",()=>{$("#pick").hidden=false});
+$("#chips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;active=b.dataset.c;chips();render()});
+$("#q").addEventListener("input",render);
+$("#theme").addEventListener("click",()=>{const r=document.documentElement,d=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;r.dataset.theme=d?"light":"dark"});
+all();
 </script>
 </body>
 </html>
